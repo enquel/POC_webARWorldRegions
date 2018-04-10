@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<script src="js/aframe.min.js"></script>
+<!-- include aframe-ar.js -->
+<script src="js/aframe-ar.js"></script>
+
+<style type="text/css">
+	
+#arjsDebugUIContainer 
+{
+   display: none; !important;
+}
+	
+.a-enter-vr-button
+{
+   display: none; !important;		
+}
+</style>
+<style>
+        #play-button{
+          position: fixed;
+          top: calc(50% - 1em);
+          left: calc(50% - 100px);
+          width: 200px;
+          height: 2em;
+          z-index: 10;
+        }
+    </style>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+
+      <button id="play-button">Play Movie</button>
+      
+  <a-scene embedded arjs='sourceType: webcam;'>
+	   <a-assets>
+        <!-- Single source video. -->
+      </a-assets>
+
+
+
+		<a-plane scale="0.2 0.2 0.2" position="0 0 0" opacity="0.01" rotation="-90 0 0" width="10" height="10" color="#7BC8A4">
+	 </a-plane>
+	  
+		  <a-marker-camera preset='custom' type='pattern' url='/data/markerScanHere.patt'>
+      <a-entity cursor="fuse: true;"
+                          position="0 0 -1"
+                          scale="0.02 0.02 0.02"
+                          geometry="primitive: ring"
+                          material="color: black; shader: flat">
+                    <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
+                                 fill="forwards" from="0.02 0.02 0.02" to="0.03 0.03 0.3"></a-animation>
+                    <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
+                                 fill="backwards" from="0.03 0.03 0.03" to="0.02 0.02 0.02"></a-animation>
+                </a-entity>
+
+      </a-marker-camera> 
+		  
+		  
+	</a-scene>
+</body>
+</html>
