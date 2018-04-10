@@ -54,34 +54,7 @@
 		  
 		  
 	</a-scene>
-  <script>
-
-AFRAME.registerComponent( 'clickable-ar', {
-
-init: () => {
-
-    document.addEventListener('click', () => {
-              
-      raycaster = new THREE.Raycaster()
-      mouse = new THREE.Vector2()
-
-      mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
-      mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
-
-
-      # raycaster.setFromCamera( mouse.clone(), AFRAME.scenes[0].camera )
-      # objects = raycaster.intersectObjects( AFRAME.scenes[0].sceneEl.children )
-
-      # position = {x: 0, y: 0, z: 0} and  direction = {x: 0, y: 0, z: -1} )
-      raycaster.set( AFRAME.scenes[0].camera.position, AFRAME.scenes[0].camera.getWorldDirection() )
-      elts = raycaster.intersectObject( this, true )
-
-      for( elt in elts ) {
-        elt.click(); 
-      }
-  });
-}
-</script>
+ 
 
    <script>
       document.querySelector('#buttRegion1').addEventListener("click", function(e)
