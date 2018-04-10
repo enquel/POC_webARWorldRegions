@@ -27,13 +27,13 @@
 		
 	  
     <!--
-       <a-marker preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master
-/data/markerHiro.patt'> </a-marker> 
+       <a-marker-camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master
+/data/markerHiro.patt'> </a-marker-camera> 
 -->
 		  <a-marker preset='hiro'>
-      <a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
-   </a-plane> </a-marker> 
-
+       </a-marker> 
+<a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+   </a-plane>
 
       <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
         <a-entity cursor="fuse: true;"
@@ -51,8 +51,6 @@
 		  
 	</a-scene>
    <script>
-     
-
       document.querySelector('#buttRegion1').addEventListener("click", function(e)
       {
          console.log("buttRegion1");
