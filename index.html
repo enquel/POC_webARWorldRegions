@@ -33,8 +33,9 @@
 <a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
    </a-plane>
 
+<!--
 		  <a-marker preset='hiro'></a-marker> 
-
+-->
 
       <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
         <a-entity cursor="fuse: true;"
@@ -52,6 +53,35 @@
 		  
 		  
 	</a-scene>
+  <script>
+
+AFRAME.registerComponent( 'clickable-ar', {
+
+init: () => {
+
+    document.addEventListener('click', () => {
+              
+      raycaster = new THREE.Raycaster()
+      mouse = new THREE.Vector2()
+
+      mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
+      mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
+
+
+      # raycaster.setFromCamera( mouse.clone(), AFRAME.scenes[0].camera )
+      # objects = raycaster.intersectObjects( AFRAME.scenes[0].sceneEl.children )
+
+      # position = {x: 0, y: 0, z: 0} and  direction = {x: 0, y: 0, z: -1} )
+      raycaster.set( AFRAME.scenes[0].camera.position, AFRAME.scenes[0].camera.getWorldDirection() )
+      elts = raycaster.intersectObject( this, true )
+
+      for( elt in elts ) {
+        elt.click(); 
+      }
+  });
+}
+</script>
+
    <script>
       document.querySelector('#buttRegion1').addEventListener("click", function(e)
       {
