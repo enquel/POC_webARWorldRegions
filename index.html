@@ -24,7 +24,7 @@
 
 
 
-		<a-plane scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="10" height="10" color="#7BC8A4">
+		<a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
 	 </a-plane>
 	  
 		  <a-marker-camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master
@@ -44,5 +44,22 @@
 		  
 		  
 	</a-scene>
+   <script>
+      var video = document.getElementById("video");
+      video.addEventListener('ended', function (evt) 
+      { 
+        // ...
+        console.log("bacl");
+          window.location.href = '../index.html';
+          this.style.display = 'none';
+      });
+
+      document.querySelector('#buttRegion1').addEventListener("click", function(e)
+      {
+         console.log("buttRegion1");
+          window.location.href = 'http://arturmandas.com';
+          this.style.display = 'none';
+      }, false);
+    </script>
 </body>
 </html>
