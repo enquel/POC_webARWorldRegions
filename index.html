@@ -35,8 +35,26 @@
  <a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
    </a-plane>
  -->
+
+ <!-- THIS WORKS
 		  <a-marker camera preset='hiro'> <a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
    </a-plane> </a-marker camera> 
+
+ -->
+    <a-marker preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master
+        /data/markerScanHere.patt'>
+        <a-plane id="buttRegion1" scale="1 1 1" position="-10 4 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+        </a-plane>
+        <a-plane id="buttRegion2" scale="1 1 1" position="5 -3 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+        </a-plane>
+        <a-plane id="buttRegion3" scale="1 1 1" position="7 2 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+        </a-plane>
+        <a-plane id="buttRegion4" scale="1 1 1" position="-6 3 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+        </a-plane>
+        <a-plane id="buttRegion5" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+        </a-plane>
+    </a-marker camera> 
+
 
 <!--
       <a-camera user-height="1.6" wasd-controls-enabled="false" arrow-key-rotation>
@@ -81,6 +99,38 @@
       {
          console.log("buttRegion1");
           window.location.href = './Video1/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion2').addEventListener("click", function(e)
+      {
+         console.log("buttRegion2");
+          window.location.href = './Video2/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion3').addEventListener("click", function(e)
+      {
+         console.log("buttRegion3");
+          window.location.href = './Video3/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion4').addEventListener("click", function(e)
+      {
+         console.log("buttRegion4");
+          window.location.href = './Video4/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion5').addEventListener("click", function(e)
+      {
+         console.log("buttRegion5");
+          window.location.href = './Video5/index.html';
           this.style.display = 'none';
       }, false);
     </script>
