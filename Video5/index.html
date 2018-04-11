@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-        #play-button{
-          position: fixed;
-          top: calc(50% - 1em);
-          left: calc(50% - 100px);
-          width: 200px;
-          height: 2em;
-          z-index: 10;
-        }
-    </style>
-    </head>
   <body>
-     <button id="play-button">Play</button>
     <!-- As if this Glitch were a typical HTML CodePen... -->    
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     
@@ -23,39 +10,15 @@
     <script src="play-on-vrdisplayactivate-or-enter-vr.js"></script>
     <script src="hide-once-playing.js"></script>
 
- <script>
 
-    // Play button, required by browsers to grab user interaction before autoplaying videos.
-    document.querySelector('#play-button').addEventListener("click", function(e)
-    {
-    startStuff();  // launch the first voice over
-    this.style.display = 'none';
-    }, false);
-
-    function startStuff(){
-        var vid1 = document.querySelector('#vid1');
-        vid1.play();
-    }
-    </script>
     <!-- Specify our scene. -->
     <a-scene>
-            <!-- Wait for the video to load. -->
-      <a-assets>
-        <!-- Single source video. -->
-        <video id="video" style="display:none" 
-               autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="video.mp4">
-        </video>
-      </a-assets>
       <!-- The original example also has this 180 degree rotation, to appear to be going forward. -->
-      <!--
       <a-videosphere rotation="0 180 0" src="#video" 
                      play-on-window-click
                      play-on-vrdisplayactivate-or-enter-vr>
       </a-videosphere>
-    -->
-
-      <video id="vid1" src="#video" autoplay="false" preload="auto" loop crossorigin webkit-playsinline></video>
-
+      
       <!-- Define camera with zero user height, movement disabled and arrow key rotation added. -->
       <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
         <!-- Text element for display messaging.  Hide once video is playing. -->
@@ -70,7 +33,13 @@
         -->
       </a-camera>      
       
-
+      <!-- Wait for the video to load. -->
+      <a-assets>
+        <!-- Single source video. -->
+        <video id="video" style="display:none" 
+               autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="video.mp4">
+        </video>
+      </a-assets>
     </a-scene>
     
     <!-- Show a button to switch to the multi-source example that shows detail. -->
