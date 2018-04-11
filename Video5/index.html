@@ -23,14 +23,27 @@
     <script src="play-on-vrdisplayactivate-or-enter-vr.js"></script>
     <script src="hide-once-playing.js"></script>
 
+ <script>
 
+    // Play button, required by browsers to grab user interaction before autoplaying videos.
+    document.querySelector('#play-button').addEventListener("click", function(e)
+    {
+    startStuff();  // launch the first voice over
+    this.style.display = 'none';
+    }, false);
+
+    function startStuff(){
+        var vid1 = document.querySelector('#vid1');
+        vid1.play();
+    }
+    </script>
     <!-- Specify our scene. -->
     <a-scene>
             <!-- Wait for the video to load. -->
       <a-assets>
         <!-- Single source video. -->
-        <video id="video" style="display:none" 
-               autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="video.mp4">
+        <video id="vid1" style="display:none" 
+               autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="#video">
         </video>
       </a-assets>
       <!-- The original example also has this 180 degree rotation, to appear to be going forward. -->
