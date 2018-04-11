@@ -26,6 +26,13 @@
 
     <!-- Specify our scene. -->
     <a-scene>
+            <!-- Wait for the video to load. -->
+      <a-assets>
+        <!-- Single source video. -->
+        <video id="video" style="display:none" 
+               autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="video.mp4">
+        </video>
+      </a-assets>
       <!-- The original example also has this 180 degree rotation, to appear to be going forward. -->
       <!--
       <a-videosphere rotation="0 180 0" src="#video" 
@@ -50,13 +57,7 @@
         -->
       </a-camera>      
       
-      <!-- Wait for the video to load. -->
-      <a-assets>
-        <!-- Single source video. -->
-        <video id="video" style="display:none" 
-               autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="video.mp4">
-        </video>
-      </a-assets>
+
     </a-scene>
     
     <!-- Show a button to switch to the multi-source example that shows detail. -->
