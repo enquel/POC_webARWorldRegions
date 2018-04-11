@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        #play-button{
+          position: fixed;
+          top: calc(50% - 1em);
+          left: calc(50% - 100px);
+          width: 200px;
+          height: 2em;
+          z-index: 10;
+        }
+    </style>
+    </head>
   <body>
+    <button id="back-button">Back</button>
     <!-- As if this Glitch were a typical HTML CodePen... -->    
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     
@@ -48,7 +61,17 @@
       Switch to multi-source detail example
     </button>
     -->
+  <script>
 
+    // Play button, required by browsers to grab user interaction before autoplaying videos.
+    document.querySelector('#back-button').addEventListener("click", function(e)
+    {
+    console.log("bacl");
+          window.location.href = '../index.html';
+          this.style.display = 'none';
+    }, false);
+
+    </script>
      <script>
       var video = document.getElementById("video");
       video.addEventListener('ended', function (evt) 
