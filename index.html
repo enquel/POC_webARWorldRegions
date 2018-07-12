@@ -65,6 +65,7 @@
 	//set calculated position and rotation on markergroup
 	el.position.set(previouspos.x,previouspos.y,previouspos.z); 
 	el.updateMatrix(); 
+	this.el.setObject3D(this.rotation, new THREE.Mesh());
   }
 }); 
  </script>
