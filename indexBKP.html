@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<script src="js/aframe.min.js"></script>
+<!-- include aframe-ar.js -->
+<script src="js/aframe-ar.js"></script>
+
+<!--
+<script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
+-->
+<style type="text/css">
+	
+#arjsDebugUIContainer 
+{
+   display: none; !important;
+}
+	
+.a-enter-vr-button
+{
+   display: none; !important;		
+}
+</style>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+      
+  <a-scene smoothmotion embedded arjs='sourceType: webcam;'>
+	   <a-assets>
+        <!-- Single source video. -->
+      </a-assets>
+
+ <script>
+	AFRAME.registerComponent('smoothmotion', 
+{
+  schema: 
+  {
+    // ... Define schema to pass properties from DOM to this component
+  },
+		
+  init: function () 
+  {
+    var el = this.el;  // Entity.
+    //var mythreejsobject = // ... Create three.js object.
+    //el.setObject3D('mesh', mythreejsobject);
+  }
+
+  update: function (time, timeDelta)  
+  {
+    var el = this.el;  // Entity.
+    //var mythreejsobject = // ... Create three.js object.
+    //el.setObject3D('mesh', mythreejsobject);
+
+
+	var previousrot={x:0,y:0,z:0}; //set initial rotation and position
+	var previouspos={x:0,y:0,z:0};
+
+	onRenderFcts.push(function(delta){  //render changes
+
+	previousrot.x=(previousrot.x*1+el.rotation.x)/2; //update rotation on ratio
+	previousrot.y=(previousrot.y*1+el.rotation.y)/2;
+	previousrot.z=(previousrot.z*1+el.rotation.z)/2;
+	//el.rotation.set(previousrot.x,previousrot.y,previousrot.z); 
+	el.rotation.set(0,0,0); 
+		
+	//previouspos.x=(previouspos.x*1+markerGroup4.position.x)/2; //update position on ratio
+	//previouspos.y=(previouspos.y*1+markerGroup4.position.y)/2;
+	//previouspos.z=(previouspos.z*1+markerGroup4.position.z)/2;
+
+	//set calculated position and rotation on markergroup
+	el.position.set(previouspos.x,previouspos.y,previouspos.z); 
+	el.updateMatrix(); 
+	
+		//this.el.setObject3D(this.rotation, new THREE.Mesh());
+		el.object3D.rotation.x = 0;
+		el.object3D.rotation.y = 0;
+		el.object3D.rotation.z = 0;
+		
+		el.setAttribute('rotation', { x: 0, y: 0, z: 0 });
+  }
+}); 
+ </script>
+<!--
+       <a-marker-camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master
+/data/markerScanHere.patt'> </a-marker-camera> 
+-->
+
+<!--
+ <a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+   </a-plane>
+ -->
+
+ <!-- THIS WORKS reddish greenlivid purple yellow greenold
+		  <a-marker camera preset='hiro'> <a-plane id="buttRegion1" scale="1 1 1" position="0 0 0" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+   </a-plane> </a-marker camera> 
+
+ -->
+
+    <a-marker smoothmotion camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt'>
+        <a-plane smoothmotion id="buttRegion1" scale=".3 .3 .3" position="-3 1 -1.7" opacity="1" rotation="-90 0 0" width="1" height="1" color="#ff4545">
+        </a-plane>
+        <a-plane smoothmotion id="buttRegion2" scale=".3 .3 .3" position="1 0 -0.5" opacity="1" rotation="-90 0 0" width="1" height="1" color="#bbff45">
+        </a-plane>
+        <a-plane smoothmotion id="buttRegion3" scale=".3 .3 .3" position="0.5 0 -1.5" opacity="1" rotation="-90 0 0" width="1" height="1" color="#c845ff">
+        </a-plane>
+        <a-plane smoothmotion id="buttRegion4" scale=".3 .3 .3" position="0 0 0.7" opacity="1" rotation="-90 0 0" width="1" height="1" color="#fff845">
+        </a-plane>
+        <a-plane smoothmotion id="buttRegion5" scale=".3 .3 .3" position="1.8 0 -2" opacity="1" rotation="-90 0 0" width="1" height="1" color="#7BC8A4">
+        </a-plane>
+    </a-marker camera> 
+
+
+<!--
+      <a-camera user-height="1.6" wasd-controls-enabled="false" arrow-key-rotation>
+        
+        <a-entity cursor="fuse: true;"
+                          position="0 0 -1"
+                          scale="0.02 0.02 0.02"
+                          geometry="primitive: ring"
+                          material="color: black; shader: flat">
+                    <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
+                                 fill="forwards" from="0.02 0.02 0.02" to="0.03 0.03 0.3"></a-animation>
+                    <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
+                                 fill="backwards" from="0.03 0.03 0.03" to="0.02 0.02 0.02"></a-animation>
+                </a-entity>
+                  
+      </a-camera>  
+   -->
+
+<!--
+		  <a-entity camera look-controls mouse-cursor></a-entity>
+		--> 
+     <a-entity camera></a-entity>
+     <a-entity cursor="fuse: true;"
+                          position="0 0 -1"
+                          scale="0.02 0.02 0.02"
+                          geometry="primitive: ring"
+                          material="color: black; shader: flat">
+                    <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
+                                 fill="forwards" from="0.02 0.02 0.02" to="0.03 0.03 0.3"></a-animation>
+                    <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
+                                 fill="backwards" from="0.03 0.03 0.03" to="0.02 0.02 0.02"></a-animation>
+                </a-entity>
+<!--<a-entity cursor="fuse: true;"></a-entity> -->
+
+      
+      
+
+             
+	</a-scene>
+   <script>
+      document.querySelector('#buttRegion1').addEventListener("click", function(e)
+      {
+         console.log("buttRegion1");
+          window.location.href = './Video1/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion2').addEventListener("click", function(e)
+      {
+         console.log("buttRegion2");
+          window.location.href = './Video2/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion3').addEventListener("click", function(e)
+      {
+         console.log("buttRegion3");
+          window.location.href = './Video3/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion4').addEventListener("click", function(e)
+      {
+         console.log("buttRegion4");
+          window.location.href = './Video4/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+    <script>
+      document.querySelector('#buttRegion5').addEventListener("click", function(e)
+      {
+         console.log("buttRegion5");
+          window.location.href = './Video5/index.html';
+          this.style.display = 'none';
+      }, false);
+    </script>
+</body>
+</html>
