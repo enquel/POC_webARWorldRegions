@@ -16,23 +16,19 @@
 		<script>
 	AFRAME.registerComponent('smoothmotion', 
 {
-  schema: 
-  {
-    // ... Define schema to pass properties from DOM to this component
-  },
-		
+  	
   init: function () 
   {
     var el = this.el;  // Entity.
     //var mythreejsobject = // ... Create three.js object.
     //el.setObject3D('mesh', mythreejsobject);
 	  el.setAttribute('rotation', { x: 45, y: 66, z: 88 });
-	  el.rotation.set(44,44,44); 
+	 // el.rotation.set(44,44,44); 
   }
 
   update: function (time, timeDelta)  
   {
-    var el = this.el;  // Entity.
+    //var el = this.el;  // Entity.
     //var mythreejsobject = // ... Create three.js object.
     //el.setObject3D('mesh', mythreejsobject);
 
@@ -61,7 +57,7 @@
 		//el.object3D.rotation.y = 133;
 		//el.object3D.rotation.z = 133;
 		
-		el.setAttribute('rotation', { x: 45, y: 66, z: 88 });
+		//el.setAttribute('rotation', { x: 45, y: 66, z: 88 });
   }
 }); 
  </script>
