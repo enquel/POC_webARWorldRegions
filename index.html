@@ -19,9 +19,42 @@
   {
     var el = this.el;  // Entity.
    
-	el.setAttribute('rotation', { x: 45, y: 66, z: 88 });
-
+	//el.setAttribute('rotation', { x: 45, y: 66, z: 88 });
   }  
+	update: function (time, timeDelta)  
+  {
+    var el = this.el;  // Entity.
+    //var mythreejsobject = // ... Create three.js object.
+    //el.setObject3D('mesh', mythreejsobject);
+
+
+	var previousrot={x:0,y:0,z:0}; //set initial rotation and position
+	var previouspos={x:0,y:0,z:0};
+
+	onRenderFcts.push(function(delta){  //render changes
+
+	previousrot.x=(previousrot.x*1+el.rotation.x)/2; //update rotation on ratio
+	previousrot.y=(previousrot.y*1+el.rotation.y)/2;
+	previousrot.z=(previousrot.z*1+el.rotation.z)/2;
+	//el.rotation.set(previousrot.x,previousrot.y,previousrot.z); 
+	el.rotation.set(0,0,0); 
+		
+	//previouspos.x=(previouspos.x*1+markerGroup4.position.x)/2; //update position on ratio
+	//previouspos.y=(previouspos.y*1+markerGroup4.position.y)/2;
+	//previouspos.z=(previouspos.z*1+markerGroup4.position.z)/2;
+
+	//set calculated position and rotation on markergroup
+	//el.position.set(previouspos.x,previouspos.y,previouspos.z); 
+	//el.updateMatrix(); 
+	
+		//this.el.setObject3D(this.rotation, new THREE.Mesh());
+		//el.object3D.rotation.x = 0;
+		//el.object3D.rotation.y = 0;
+		//el.object3D.rotation.z = 0;
+		
+		//el.setAttribute('rotation', { x: 0, y: 0, z: 0 });
+  }	
+		
 }); 
  </script>
 	<a-scene background="color: #ECECEC">
