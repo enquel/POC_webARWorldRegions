@@ -19,13 +19,7 @@
 }
 </style>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-      
-  <a-scene embedded arjs='sourceType: webcam;'>
-	   <a-assets>
-        <!-- Single source video. -->
-      </a-assets>
-
- <script>
+      <script>
 	AFRAME.registerComponent('smoothmotion', {
   
   update: function (time, timeDelta)  
@@ -48,6 +42,12 @@
 	
   }}); 
  </script>
+  <a-scene embedded arjs='sourceType: webcam;'>
+	   <a-assets>
+        <!-- Single source video. -->
+      </a-assets>
+
+ 
 <!--
        <a-marker-camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master
 /data/markerScanHere.patt'> </a-marker-camera> 
