@@ -39,7 +39,7 @@
 	previousrot.y=(previousrot.y*1+el.rotation.y)/2;
 	previousrot.z=(previousrot.z*1+el.rotation.z)/2;
 	  
-	  previousrot = {x:33,y:55,z:34};
+	  //previousrot = {x:33,y:55,z:34};
 	el.rotation.set(previousrot.x,previousrot.y,previousrot.z); 
 
 	el.position.set(previouspos.x,previouspos.y,previouspos.z); 
@@ -64,7 +64,7 @@
 
  -->
 
-    <a-marker camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt' smoothmotion>
+    <a-marker camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt'>
         <a-plane id="buttRegion1" scale=".3 .3 .3" position="-3 1 -1.7" opacity="1" rotation="-90 0 0" width="1" height="1" color="#ff4545">
         </a-plane>
         <a-plane id="buttRegion2" scale=".3 .3 .3" position="1 0 -0.5" opacity="1" rotation="-90 0 0" width="1" height="1" color="#bbff45">
@@ -77,7 +77,7 @@
         </a-plane>
     </a-marker camera> 
 
-
+<a-entity smoothmotion></a-entity>
 <!--
       <a-camera user-height="1.6" wasd-controls-enabled="false" arrow-key-rotation>
         
