@@ -7,29 +7,7 @@
 <!--
 <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
 -->
-<script>
-	AFRAME.registerComponent('smoothmotion', {
-  
-  update: function (time, timeDelta)  
-  {
-	   
-    var el = this.el;  // Entity.
-	var previousrot={x:0,y:0,z:0}; //set initial rotation and position
-	var previouspos={x:0,y:0,z:0};
 
-	previousrot.x=(previousrot.x*1+el.rotation.x)/2; //update rotation on ratio
-	previousrot.y=(previousrot.y*1+el.rotation.y)/2;
-	previousrot.z=(previousrot.z*1+el.rotation.z)/2;
-	  
-	  //previousrot = {x:33,y:55,z:34};
-	el.rotation.set(previousrot.x,previousrot.y,previousrot.z); 
-
-	el.position.set(previouspos.x,previouspos.y,previouspos.z); 
-	el.updateMatrix();
-	
-	
-  }}); 
- </script>
 <style type="text/css">
 	
 #arjsDebugUIContainer 
@@ -45,6 +23,29 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
       
   <a-scene embedded arjs='sourceType: webcam;'>
+	  <script>
+	AFRAME.registerComponent('smoothmotion', {
+  
+  update: function (time, timeDelta)  
+  {
+	   
+    var el = this.el;  // Entity.
+	var previousrot={x:0,y:0,z:0}; //set initial rotation and position
+	var previouspos={x:0,y:0,z:0};
+
+	previousrot.x=(previousrot.x*1+el.rotation.x)/6; //update rotation on ratio
+	previousrot.y=(previousrot.y*1+el.rotation.y)/6;
+	previousrot.z=(previousrot.z*1+el.rotation.z)/6;
+	  
+	  //previousrot = {x:33,y:55,z:34};
+	el.rotation.set(previousrot.x,previousrot.y,previousrot.z); 
+
+	el.position.set(previouspos.x,previouspos.y,previouspos.z); 
+	el.updateMatrix();
+	
+	
+  }}); 
+ </script>
 	   <a-assets>
         <!-- Single source video. -->
       </a-assets>
