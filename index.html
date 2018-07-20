@@ -23,7 +23,9 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
       
   <a-scene embedded arjs='sourceType: webcam;'>
+	  
 	  <script>
+		  /*
 	AFRAME.registerComponent('smoothmotion', {
   
   update: function (time, timeDelta)  
@@ -43,6 +45,7 @@
 	el.position.set(previouspos.x,previouspos.y,previouspos.z); 
 	el.updateMatrix();
   }}); 
+  */
  </script>
 	   <a-assets>
         <!-- Single source video. -->
@@ -65,7 +68,7 @@
 
  -->
 
-    <a-marker camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt' smoothmotion>
+    <a-marker camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt'>
         <a-plane id="buttRegion1" scale=".3 .3 .3" position="-3 1 -1.7" opacity="1" rotation="-90 0 0" width="1" height="1" color="#ff4545">
         </a-plane>
         <a-plane id="buttRegion2" scale=".3 .3 .3" position="1 0 -0.5" opacity="1" rotation="-90 0 0" width="1" height="1" color="#bbff45">
