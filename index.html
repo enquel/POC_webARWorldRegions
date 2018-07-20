@@ -68,7 +68,7 @@
 
  -->
 
-    <a-marker camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt'>
+    <a-marker camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldRegions/master/data/markerScanHere.patt' smoothmotion>
         <a-plane id="buttRegion1" scale=".3 .3 .3" position="-3 1 -1.7" opacity="1" rotation="-90 0 0" width="1" height="1" color="#ff4545">
         </a-plane>
         <a-plane id="buttRegion2" scale=".3 .3 .3" position="1 0 -0.5" opacity="1" rotation="-90 0 0" width="1" height="1" color="#bbff45">
@@ -102,7 +102,7 @@
 <!--
 		  <a-entity camera look-controls mouse-cursor></a-entity>
 		--> 
-     <a-entity camera></a-entity>
+     <a-entity camera smoothmotion></a-entity>
      <a-entity cursor="fuse: true;"
                           position="0 0 -1"
                           scale="0.02 0.02 0.02"
